@@ -45,3 +45,27 @@ var makeArr = function (name) {
     return args;
 };
 console.log(makeArr('Kevin', 1, 2, 3));
+// Destructuring
+console.log('DESTRUCTURING');
+console.log('DESTRUCTURING ARRAYS');
+var myHobbies = ['Cooking', 'Basketball'];
+// let hobby1: string = myHobbies[0];
+// let hobby2: string = myHobbies[1];
+var hobby1 = myHobbies[0], hobby2 = myHobbies[1]; // destructuring arrays
+console.log(hobby1, hobby2);
+console.log('DESTRUCTURING OBJECTS');
+var userData = {
+    username: 'Kevin',
+    age: 23
+};
+// const username = userData.username;
+// const age: number = userData.age;
+// const { username: myName, age: myAge } = userData; // optionally set different names
+// console.log(myName, myAge);
+var username = userData.username, age = userData.age;
+console.log(username, age);
+// Template Literals
+var userName = 'Kevin';
+// const greeting = "Hello I'm " + userName;
+var greeting = "This is a heading.\nHello I'm " + userName + "\nThis is a multiline string!\nVery cool!\n";
+console.log(greeting);

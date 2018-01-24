@@ -44,3 +44,34 @@ let makeArr = (name: string, ...args: number[]): number[] => {
 };
 
 console.log(makeArr('Kevin', 1, 2, 3));
+
+// Destructuring
+console.log('DESTRUCTURING');
+console.log('DESTRUCTURING ARRAYS');
+let myHobbies: string[] = ['Cooking', 'Basketball'];
+// let hobby1: string = myHobbies[0];
+// let hobby2: string = myHobbies[1];
+let [hobby1, hobby2] = myHobbies; // destructuring arrays
+console.log(hobby1, hobby2);
+
+console.log('DESTRUCTURING OBJECTS');
+const userData: { username: string; age: number } = {
+  username: 'Kevin',
+  age: 23
+};
+// const username = userData.username;
+// const age: number = userData.age;
+// const { username: myName, age: myAge } = userData; // optionally set different names
+// console.log(myName, myAge);
+const { username, age } = userData;
+console.log(username, age);
+
+// Template Literals
+const userName: string = 'Kevin';
+// const greeting = "Hello I'm " + userName;
+const greeting: string = `This is a heading.
+Hello I'm ${userName}
+This is a multiline string!
+Very cool!
+`;
+console.log(greeting);
