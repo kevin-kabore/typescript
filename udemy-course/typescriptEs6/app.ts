@@ -30,3 +30,17 @@ const countdown = (start: number = 10): void => {
   console.log('DONE!', start);
 };
 countdown(10);
+
+//Spread & Rest operators
+console.log('REST & SPREAD');
+// allow to work with arrays and list of values
+const numbersArr = [1, 2, 3, 99, -5];
+console.log(Math.max(99, 10, -5, 15)); // list of numbers
+console.log(Math.max(...numbersArr)); //spread the arr
+
+let makeArr = (name: string, ...args: number[]): number[] => {
+  // rest operator turns args into array
+  return args;
+};
+
+console.log(makeArr('Kevin', 1, 2, 3));

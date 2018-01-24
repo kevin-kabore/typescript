@@ -30,3 +30,18 @@ var countdown = function (start) {
     console.log('DONE!', start);
 };
 countdown(10);
+//Spread & Rest operators
+console.log('REST & SPREAD');
+// allow to work with arrays and list of values
+var numbersArr = [1, 2, 3, 99, -5];
+console.log(Math.max(99, 10, -5, 15)); // list of numbers
+console.log(Math.max.apply(Math, numbersArr)); //spread the arr
+var makeArr = function (name) {
+    var args = [];
+    for (var _i = 1; _i < arguments.length; _i++) {
+        args[_i - 1] = arguments[_i];
+    }
+    // rest operator turns args into array
+    return args;
+};
+console.log(makeArr('Kevin', 1, 2, 3));
