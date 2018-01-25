@@ -24,3 +24,16 @@ const person = new Person('Kevin', 'kevintheUser');
 console.log(person);
 person.printAge();
 // person.setType('Amazing dude'); // won't work with private method
+
+// Inheritance
+class Kevin extends Person {
+  // name = 'Kevin';
+  constructor(username: string) {
+    super('Kevin', username);
+    this.age = 55; // available because protected not private
+    console.log(this.type);
+  }
+}
+// const kevin = new Kevin('Kirsten', 'kirstenTheUser'); // name will be Kevin since set in class declaration
+const kevin = new Kevin('kirstenTheUser');
+console.log(kevin);
