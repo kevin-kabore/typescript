@@ -1,3 +1,6 @@
+/////////////////////////////////
+// Creating Classes
+/////////////////////////////////
 class Person {
   public name: string; // public by default in javaScript
   private type: string; // typescript modifier to make private only available from within THIS object
@@ -25,7 +28,9 @@ console.log(person);
 person.printAge();
 // person.setType('Amazing dude'); // won't work with private method
 
+/////////////////////////////////
 // Inheritance
+/////////////////////////////////
 class Kevin extends Person {
   // name = 'Kevin';
   constructor(username: string) {
@@ -37,7 +42,9 @@ class Kevin extends Person {
 const kevin = new Kevin('KevinTheUserName');
 console.log(kevin);
 
+/////////////////////////////////
 //GETTERS & SETTERS
+/////////////////////////////////
 console.log('GETTERS & SETTERS');
 class Plant {
   private _species: string = 'Default';
@@ -66,7 +73,9 @@ plant.species = 'Green plant';
 console.log(plant.species);
 // returns "Green plant"
 
+/////////////////////////////////
 // STATIC PROPERTIES AND METHODS
+/////////////////////////////////
 // Mostly useful for helper classes like this one
 class Helpers {
   static PI: number = 3.14;
@@ -78,7 +87,9 @@ class Helpers {
 console.log(2 * Helpers.PI); // works because of static keyword
 console.log(Helpers.calcCircumference(5));
 
+////////////////////////////
 // ABSTRACT CLASSES
+////////////////////////////
 // Can't be instatiated, can only be extended
 console.log('ABSTRACT CLASSES');
 abstract class Project {
@@ -106,3 +117,23 @@ newProject.changeName('Super New IT Project');
 console.log(newProject);
 // ABSTRACT CLASSES - need to be inherited
 // provides a blue print as an abstract base class
+
+///////////////////////////////////////
+// Private Constructors and singletons
+///////////////////////////////////////
+// Singleton class: Class that will only have 1 instance during run time
+class OnlyOne {
+  private static instance: OnlyOne;
+
+  private constructor(public name: string) {}
+
+  static getInstance() {
+    if (!OnlyOne.instance) {
+      OnlyOne.instance = new OnlyOne('The Only One');
+    }
+    return OnlyOne.instance;
+  }
+}
+
+// let wrong = new OnlyOne('The Only One');
+let right = OnlyOne.getInstance();

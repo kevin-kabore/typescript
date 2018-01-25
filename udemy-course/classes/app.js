@@ -9,6 +9,9 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
+/////////////////////////////////
+// Creating Classes
+/////////////////////////////////
 var Person = /** @class */ (function () {
     function Person(name, username) {
         this.username = username;
@@ -36,7 +39,9 @@ var person = new Person('Kevin', 'kevintheUser');
 console.log(person);
 person.printAge();
 // person.setType('Amazing dude'); // won't work with private method
+/////////////////////////////////
 // Inheritance
+/////////////////////////////////
 var Kevin = /** @class */ (function (_super) {
     __extends(Kevin, _super);
     // name = 'Kevin';
@@ -50,7 +55,9 @@ var Kevin = /** @class */ (function (_super) {
 // const kevin = new Kevin('Kirsten', 'kirstenTheUser'); // name will be Kevin since set in class declaration
 var kevin = new Kevin('KevinTheUserName');
 console.log(kevin);
+/////////////////////////////////
 //GETTERS & SETTERS
+/////////////////////////////////
 console.log('GETTERS & SETTERS');
 var Plant = /** @class */ (function () {
     function Plant() {
@@ -83,7 +90,9 @@ console.log(plant.species);
 plant.species = 'Green plant';
 console.log(plant.species);
 // returns "Green plant"
+/////////////////////////////////
 // STATIC PROPERTIES AND METHODS
+/////////////////////////////////
 // Mostly useful for helper classes like this one
 var Helpers = /** @class */ (function () {
     function Helpers() {
@@ -97,7 +106,9 @@ var Helpers = /** @class */ (function () {
 // console.log(2 * Helpers.PI); // will not work without static keyword
 console.log(2 * Helpers.PI); // works because of static keyword
 console.log(Helpers.calcCircumference(5));
+////////////////////////////
 // ABSTRACT CLASSES
+////////////////////////////
 // Can't be instatiated, can only be extended
 console.log('ABSTRACT CLASSES');
 var Project = /** @class */ (function () {
@@ -128,3 +139,21 @@ newProject.changeName('Super New IT Project');
 console.log(newProject);
 // ABSTRACT CLASSES - need to be inherited
 // provides a blue print as an abstract base class
+///////////////////////////////////////
+// Private Constructors and singletons
+///////////////////////////////////////
+// Singleton class: Class that will only have 1 instance during run time
+var OnlyOne = /** @class */ (function () {
+    function OnlyOne(name) {
+        this.name = name;
+    }
+    OnlyOne.getInstance = function () {
+        if (!OnlyOne.instance) {
+            OnlyOne.instance = new OnlyOne('The Only One');
+        }
+        return OnlyOne.instance;
+    };
+    return OnlyOne;
+}());
+// let wrong = new OnlyOne('The Only One');
+var right = OnlyOne.getInstance();
