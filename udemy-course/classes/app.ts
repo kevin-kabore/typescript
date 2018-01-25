@@ -31,9 +31,35 @@ class Kevin extends Person {
   constructor(username: string) {
     super('Kevin', username);
     this.age = 55; // available because protected not private
-    console.log(this.type);
   }
 }
 // const kevin = new Kevin('Kirsten', 'kirstenTheUser'); // name will be Kevin since set in class declaration
-const kevin = new Kevin('kirstenTheUser');
+const kevin = new Kevin('KevinTheUserName');
 console.log(kevin);
+
+//GETTERS & SETTERS
+class Plant {
+  private _species: string = 'Default';
+
+  get species(): string {
+    // will be called like a property not method
+    return this._species;
+  }
+
+  set species(value: string) {
+    if (value.length > 3) {
+      this._species = value;
+    } else {
+      this._species = 'Default';
+    }
+  }
+}
+
+let plant = new Plant();
+console.log(plant.species); // getter called like a prop not method
+// return "Default"
+plant.species = 'AB'; // setter called like a prop not method
+console.log(plant.species);
+// returns default because didn't pass if statement
+plant.species = 'Green plant';
+console.log(plant.species);

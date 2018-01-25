@@ -43,11 +43,41 @@ var Kevin = /** @class */ (function (_super) {
     function Kevin(username) {
         var _this = _super.call(this, 'Kevin', username) || this;
         _this.age = 55; // available because protected not private
-        console.log(_this.type);
         return _this;
     }
     return Kevin;
 }(Person));
 // const kevin = new Kevin('Kirsten', 'kirstenTheUser'); // name will be Kevin since set in class declaration
-var kevin = new Kevin('kirstenTheUser');
+var kevin = new Kevin('KevinTheUserName');
 console.log(kevin);
+//GETTERS & SETTERS
+var Plant = /** @class */ (function () {
+    function Plant() {
+        this._species = 'Default';
+    }
+    Object.defineProperty(Plant.prototype, "species", {
+        get: function () {
+            // will be called like a property not method
+            return this._species;
+        },
+        set: function (value) {
+            if (value.length > 3) {
+                this._species = value;
+            }
+            else {
+                this._species = 'Default';
+            }
+        },
+        enumerable: true,
+        configurable: true
+    });
+    return Plant;
+}());
+var plant = new Plant();
+console.log(plant.species); // getter called like a prop not method
+// return "Default"
+plant.species = 'AB'; // setter called like a prop not method
+console.log(plant.species);
+// returns default because didn't pass if statement
+plant.species = 'Green plant';
+console.log(plant.species);
