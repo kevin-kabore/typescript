@@ -51,6 +51,7 @@ var Kevin = /** @class */ (function (_super) {
 var kevin = new Kevin('KevinTheUserName');
 console.log(kevin);
 //GETTERS & SETTERS
+console.log('GETTERS & SETTERS');
 var Plant = /** @class */ (function () {
     function Plant() {
         this._species = 'Default';
@@ -81,3 +82,49 @@ console.log(plant.species);
 // returns default because didn't pass if statement
 plant.species = 'Green plant';
 console.log(plant.species);
+// returns "Green plant"
+// STATIC PROPERTIES AND METHODS
+// Mostly useful for helper classes like this one
+var Helpers = /** @class */ (function () {
+    function Helpers() {
+    }
+    Helpers.calcCircumference = function (diameter) {
+        return this.PI * diameter;
+    };
+    Helpers.PI = 3.14;
+    return Helpers;
+}());
+// console.log(2 * Helpers.PI); // will not work without static keyword
+console.log(2 * Helpers.PI); // works because of static keyword
+console.log(Helpers.calcCircumference(5));
+// ABSTRACT CLASSES
+// Can't be instatiated, can only be extended
+console.log('ABSTRACT CLASSES');
+var Project = /** @class */ (function () {
+    function Project() {
+        this.projectName = 'Default';
+        this.budget = 1000;
+    }
+    // must implement/overwrite method in child class
+    Project.prototype.calcBudget = function () {
+        return this.budget * 2;
+    };
+    return Project;
+}());
+var ITProject = /** @class */ (function (_super) {
+    __extends(ITProject, _super);
+    function ITProject() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    ITProject.prototype.changeName = function (name) {
+        this.projectName = name;
+    };
+    return ITProject;
+}(Project));
+// let newProject = new Project(); // cannot instantiate abstract class
+var newProject = new ITProject();
+console.log(newProject);
+newProject.changeName('Super New IT Project');
+console.log(newProject);
+// ABSTRACT CLASSES - need to be inherited
+// provides a blue print as an abstract base class

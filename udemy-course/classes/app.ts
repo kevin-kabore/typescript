@@ -38,6 +38,7 @@ const kevin = new Kevin('KevinTheUserName');
 console.log(kevin);
 
 //GETTERS & SETTERS
+console.log('GETTERS & SETTERS');
 class Plant {
   private _species: string = 'Default';
 
@@ -63,3 +64,45 @@ console.log(plant.species);
 // returns default because didn't pass if statement
 plant.species = 'Green plant';
 console.log(plant.species);
+// returns "Green plant"
+
+// STATIC PROPERTIES AND METHODS
+// Mostly useful for helper classes like this one
+class Helpers {
+  static PI: number = 3.14;
+  static calcCircumference(diameter: number): number {
+    return this.PI * diameter;
+  }
+}
+// console.log(2 * Helpers.PI); // will not work without static keyword
+console.log(2 * Helpers.PI); // works because of static keyword
+console.log(Helpers.calcCircumference(5));
+
+// ABSTRACT CLASSES
+// Can't be instatiated, can only be extended
+console.log('ABSTRACT CLASSES');
+abstract class Project {
+  projectName: string = 'Default';
+  budget: number = 1000;
+
+  abstract changeName(name: string): void; // does not desribe logic
+  // must implement/overwrite method in child class
+
+  calcBudget(): number {
+    return this.budget * 2;
+  }
+}
+
+class ITProject extends Project {
+  changeName(name: string): void {
+    this.projectName = name;
+  }
+}
+
+// let newProject = new Project(); // cannot instantiate abstract class
+let newProject = new ITProject();
+console.log(newProject);
+newProject.changeName('Super New IT Project');
+console.log(newProject);
+// ABSTRACT CLASSES - need to be inherited
+// provides a blue print as an abstract base class
