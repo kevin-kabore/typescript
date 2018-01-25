@@ -23,10 +23,10 @@ class Person1 {
   constructor(public name: string) {}
 }
 
-const person = new Person('Kevin', 'kevintheUser');
-console.log(person);
-person.printAge();
-// person.setType('Amazing dude'); // won't work with private method
+const person1 = new Person('Kevin', 'kevintheUser');
+console.log(person1);
+person1.printAge();
+// person1.setType('Amazing dude'); // won't work with private method
 
 /////////////////////////////////
 // Inheritance
@@ -124,8 +124,11 @@ console.log(newProject);
 // Singleton class: Class that will only have 1 instance during run time
 class OnlyOne {
   private static instance: OnlyOne;
+  public readonly name: string;
 
-  private constructor(public name: string) {}
+  private constructor(name: string) {
+    this.name = name;
+  }
 
   static getInstance() {
     if (!OnlyOne.instance) {
@@ -135,5 +138,9 @@ class OnlyOne {
   }
 }
 
-// let wrong = new OnlyOne('The Only One');
+// let wrong = new OnlyOne('The Only One'); // singletons can't be instanciated again
 let right = OnlyOne.getInstance();
+// READONLY properties
+// set in the constructor as READONLY
+console.log(right.name);
+// right.name = 'New Name'; // error because readonly property

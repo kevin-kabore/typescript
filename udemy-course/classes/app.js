@@ -35,10 +35,10 @@ var Person1 = /** @class */ (function () {
     }
     return Person1;
 }());
-var person = new Person('Kevin', 'kevintheUser');
-console.log(person);
-person.printAge();
-// person.setType('Amazing dude'); // won't work with private method
+var person1 = new Person('Kevin', 'kevintheUser');
+console.log(person1);
+person1.printAge();
+// person1.setType('Amazing dude'); // won't work with private method
 /////////////////////////////////
 // Inheritance
 /////////////////////////////////
@@ -155,5 +155,9 @@ var OnlyOne = /** @class */ (function () {
     };
     return OnlyOne;
 }());
-// let wrong = new OnlyOne('The Only One');
+// let wrong = new OnlyOne('The Only One'); // singletons can't be instanciated again
 var right = OnlyOne.getInstance();
+// READONLY properties
+// set in the constructor as READONLY
+console.log(right.name);
+// right.name = 'New Name'; // error because readonly property
