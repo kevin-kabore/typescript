@@ -46,3 +46,20 @@ const echo2: <T>(data: T) => T = betterEcho;
 
 // reusing better echo by assigning a generic function type to a constant
 console.log(echo2<string>('Something'));
+
+// GENERIC CLASSES - most used Generics
+class SimpleMath<T extends number | string> {
+  // extends constraints class types to properties. Ex can't use boolean
+  baseValue: T;
+  multiplyValue: T;
+  calculate(): number {
+    return +this.baseValue * +this.multiplyValue;
+  }
+}
+
+const simpleMath = new SimpleMath();
+// simpleMath.baseValue = 'string'; // no error without generic
+// make SimpleMath more generic
+simpleMath.baseValue = 10;
+simpleMath.multiplyValue = 20;
+console.log(simpleMath.calculate());

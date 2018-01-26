@@ -38,3 +38,18 @@ printAll(['apples', 'bananas']);
 var echo2 = betterEcho;
 // reusing better echo by assigning a generic function type to a constant
 console.log(echo2('Something'));
+// GENERIC CLASSES - most used Generics
+var SimpleMath = /** @class */ (function () {
+    function SimpleMath() {
+    }
+    SimpleMath.prototype.calculate = function () {
+        return +this.baseValue * +this.multiplyValue;
+    };
+    return SimpleMath;
+}());
+var simpleMath = new SimpleMath();
+// simpleMath.baseValue = 'string'; // no error without generic
+// make SimpleMath more generic
+simpleMath.baseValue = 10;
+simpleMath.multiplyValue = 20;
+console.log(simpleMath.calculate());
