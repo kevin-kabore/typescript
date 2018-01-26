@@ -38,3 +38,15 @@ var myPerson = new Person();
 myPerson.firstName = 'Kevin';
 greet(myPerson); // global greet function
 myPerson.greet('Kabore'); // Person class greet method
+var myDoubleFunc = function (val1, val2) {
+    return (val1 + val2) * 2;
+};
+console.log(myDoubleFunc(10, 20));
+var oldPerson = {
+    age: 23,
+    firstName: 'Kevin',
+    greet: function (lastName) {
+        console.log('Hello');
+    }
+};
+console.log(oldPerson);
