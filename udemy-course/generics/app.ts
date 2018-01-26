@@ -35,3 +35,14 @@ let printAll = <T>(args: T[]) => {
   args.forEach(element => console.log(element));
 };
 printAll<string>(['apples', 'bananas']);
+
+// Genering Types
+// const echo2 of type generic, then a function that takes data as an input and return this type
+// anything between colon and equal sign is a type.
+// So this is: A generic type (<T>) with a function type
+// where input is of type <T>
+
+const echo2: <T>(data: T) => T = betterEcho;
+
+// reusing better echo by assigning a generic function type to a constant
+console.log(echo2<string>('Something'));
