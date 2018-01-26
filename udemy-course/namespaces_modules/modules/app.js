@@ -1,3 +1,4 @@
+"use strict";
 // MODULES
 // Always need a module Loader
 // Explicit Dependency declaration
@@ -14,10 +15,9 @@
 // }
 // });
 // SystemJS.import('app.js');
-
-import * as Circle from "./math/circle";
-import  calc from "./math/rectangle";
-
+Object.defineProperty(exports, "__esModule", { value: true });
+const Circle = require("./math/circle");
+const rectangle_1 = require("./math/rectangle");
 console.log(Circle.PI);
 console.log(Circle.calculateCircumference(10));
-console.log(calc(10,20))
+console.log(rectangle_1.default(10, 20));

@@ -1,5 +1,5 @@
 {
-  "name": "boiler",
+  "name": "classes",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -11,8 +11,5 @@
   "license": "ISC",
   "devDependencies": {
     "lite-server": "^2.3.0"
-  },
-  "dependencies": {
-    "systemjs": "^0.20.19"
   }
 }

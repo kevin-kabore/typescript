@@ -3,10 +3,21 @@
   <head>
     <meta charset="utf-8">
     <title>Boiler</title>
+    <script src="node_modules/systemjs/dist/system.js"></script>
   </head>
   <body>
-    <script type="text/javascript" src="app.js">
+    <h1>Check console!</h1>
 
-    </script>
+
+    <script>
+    SystemJS.config({
+  packages: {
+    '/': {
+      defaultExtension: 'js'
+    }
+  }
+});
+SystemJS.import('app.js');
+</script>
   </body>
 </html>
