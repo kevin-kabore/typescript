@@ -48,18 +48,21 @@ const echo2: <T>(data: T) => T = betterEcho;
 console.log(echo2<string>('Something'));
 
 // GENERIC CLASSES - most used Generics
-class SimpleMath<T extends number | string> {
+// generic class takes two args on instantiation
+// T - number or string
+// U - number or string
+class SimpleMath<T extends number | string, U extends number | string> {
   // extends constraints class types to properties. Ex can't use boolean
   baseValue: T;
-  multiplyValue: T;
+  multiplyValue: U;
   calculate(): number {
     return +this.baseValue * +this.multiplyValue;
   }
 }
 
-const simpleMath = new SimpleMath();
+const simpleMath = new SimpleMath<string, number>(); // baseValue: string multiplyValue: number
 // simpleMath.baseValue = 'string'; // no error without generic
 // make SimpleMath more generic
-simpleMath.baseValue = 10;
-simpleMath.multiplyValue = 20;
+simpleMath.baseValue = '10'; // first type
+simpleMath.multiplyValue = 20; // second type
 console.log(simpleMath.calculate());
