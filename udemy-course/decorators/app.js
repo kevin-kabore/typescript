@@ -39,3 +39,23 @@ var Car = /** @class */ (function () {
     ], Car);
     return Car;
 }());
+// Advanced
+function printable(constructorFn) {
+    constructorFn.prototype.print = function () {
+        // add print() to the parent of the constructorFn
+        console.log(this);
+    };
+}
+// @logging(true)
+var Plant = /** @class */ (function () {
+    function Plant() {
+        this.name = 'Green Plant';
+    }
+    Plant = __decorate([
+        printable
+    ], Plant);
+    return Plant;
+}());
+var plant = new Plant();
+// plant.print(); must cast type any to plant
+plant.print();

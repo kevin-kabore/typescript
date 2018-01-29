@@ -26,3 +26,20 @@ function logging(value: boolean) {
 // if true logged is attached if false nothing
 @logging(true)
 class Car {}
+
+// Advanced
+function printable(constructorFn: Function) {
+  constructorFn.prototype.print = function() {
+    // add print() to the parent of the constructorFn
+    console.log(this);
+  };
+}
+
+// @logging(true)
+@printable
+class Plant {
+  name = 'Green Plant';
+}
+const plant = new Plant();
+// plant.print(); must cast type any to plant
+(<any>plant).print();
