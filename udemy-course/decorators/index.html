@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Boiler</title>
+    <script src="node_modules/systemjs/dist/system.js"></script>
+  </head>
+  <body>
+    <h1>Check Console!</h1>
+    <script>
+    SystemJS.config({
+  packages: {
+    '/': {
+      defaultExtension: 'js'
+    }
+  }
+});
+SystemJS.import('app.js');
+</script>
+  </body>
+</html>
