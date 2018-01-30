@@ -1,0 +1,20 @@
+{
+  "name": "boiler",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "lite-server"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/jquery": "^3.3.0",
+    "lite-server": "^2.3.0"
+  },
+  "dependencies": {
+    "jquery": "^3.3.1",
+    "systemjs": "^0.20.19"
+  }
+}
