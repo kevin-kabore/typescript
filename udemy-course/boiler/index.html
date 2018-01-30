@@ -7,8 +7,12 @@
   </head>
   <body>
     <h1>Check Console!</h1>
-    <script>
+    <div id="app">Change with jquery</div>
+    <script >
     SystemJS.config({
+  map: {
+    jQuery: 'node_modules/jquery/dist/jquery.min.js'
+  },
   packages: {
     '/': {
       defaultExtension: 'js'
