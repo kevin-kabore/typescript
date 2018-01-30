@@ -1,8 +1,11 @@
 // Intergrate into Webpack workflow
+// // Use webpack, specify entry point, creating a bundle and using tsloader
+// // with local Typescript version to compile typescript code and to make typescript
+// // work in webpack set up
 // > npm i --save-dev webpack ts-loader
-// remove all system js code in index.html Will use webpack
-// import bundle.js script in index.html
-// remove exclude, sourcemap, and module from tsconfig.json
+// // remove all system js code in index.html Will use webpack
+// // import bundle.js script in index.html
+// // remove exclude, sourcemap, and module from tsconfig.json
 // add webpack.config.js file
 
 // To import js libraries
